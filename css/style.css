@@ -1,0 +1,17 @@
+.hero {
+    height: 90vh;
+    background: url('../images/img1.jpg') center/cover;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+.slider {
+    height: 600px; /* ou 100vh */
+    overflow: hidden;
+}
+
+.slider li {
+    height: 600px;
+}

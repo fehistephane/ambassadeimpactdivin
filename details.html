@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Détails - AID</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/templatemo-style.css">
+
+<style>
+
+/* ===== BACKGROUND ===== */
+body {
+    background: linear-gradient(135deg, #eef2f7, #ffffff);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== TITRE ===== */
+.title-center {
+    text-align: center;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: 0.6s ease;
+}
+
+.title-center h2 {
+    font-weight: 700;
+    color: #111827;
+}
+
+.title-center h5 {
+    color: #6b7280;
+}
+
+/* ===== CARD ===== */
+.card-box {
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card-box:hover {
+    transform: translateY(-6px);
+}
+
+/* ===== IMAGE + OVERLAY ===== */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.img-container:hover .profile-img {
+    transform: scale(1.05);
+}
+
+/* NOM SUR IMAGE */
+.name-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* ===== ANIMATION ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== BOUTON ===== */
+.btn-custom {
+    margin-top: 30px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #111827;
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background: #2563eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-fixed-top custom-navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">AID</a>
+    </div>
+</nav>
+
+<section style="margin-top:100px;">
+<div class="container">
+
+    <!-- TITRE -->
+    <div class="title-center" id="titleBox">
+        <h2 id="nom"></h2>
+        <h5 id="categorie"></h5>
+    </div>
+
+    <!-- LEADER + ADJOINT -->
+    <div class="row">
+
+        <!-- LEADER -->
+        <div class="col-md-6 fade-in">
+            <div class="card-box">
+                <div class="img-container">
+                    <img id="imgLeader" class="profile-img">
+                    <div class="name-overlay" id="leader"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADJOINT -->
+        <div class="col-md-6 fade-in">
+            <div class="card-box">
+                <div class="img-container">
+                    <img id="imgAdjoint" class="profile-img">
+                    <div class="name-overlay" id="adjoint"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="row fade-in" style="margin-top:30px;">
+        <div class="col-md-12">
+            <div class="card-box description text-center">
+                <p id="description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RETOUR -->
+    <div class="text-center fade-in">
+        <a href="index.html#groupes_et_UFIS" class="btn btn-custom">
+            ← Retour
+        </a>
+    </div>
+
+</div>
+</section>
+
+<script>
+
+// PARAMS
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+// DATA (corrigé selon ton index)
+const data = {
+
+    gi_hommes: {
+        nom: "GI Hommes",
+        leader: "Leader Tony",
+        adjoint: "Adjoint",
+        imgLeader: "images/Leader Tony1.jpg",
+        imgAdjoint: "images/gi2.jpg",
+        description: "Groupe d’impact dédié aux hommes."
+    },
+
+    gi_femmes: {
+        nom: "GI Femmes",
+        leader: "Diaconesse Dingui",
+        adjoint: "Adjointe",
+        imgLeader: "images/Diaconesse Dingui.jpg",
+        imgAdjoint: "images/gi2.jpg",
+        description: "Groupe d’impact dédié aux femmes."
+    },
+
+    gi_jeunes: {
+        nom: "GI Jeunes",
+        leader: "Responsable Jeunes",
+        adjoint: "Adjoint Jeunes",
+        imgLeader: "images/gi1.jpg",
+        imgAdjoint: "images/gi2.jpg",
+        description: "Groupe d’impact pour les jeunes."
+    },
+
+    ufi_flamme_de_feu: {
+        nom: "UFI Flamme de Feu",
+        leader: "Asst Flaure",
+        adjoint: "Équipe",
+        imgLeader: "images/ufi1.jpg",
+        imgAdjoint: "images/ufi2.jpg",
+        description: "Une famille spirituelle dynamique."
+    },
+
+    ufi_lumiere_du_monde: {
+        nom: "UFI Lumière du Monde",
+        leader: "Responsable",
+        adjoint: "Adjoint",
+        imgLeader: "images/ufi1.jpg",
+        imgAdjoint: "images/ufi2.jpg",
+        description: "Rayonner la lumière du Christ."
+    }
+
+};
+
+// LOGIQUE
+if (data[id]) {
+
+    const item = data[id];
+
+    document.getElementById("nom").innerText = item.nom;
+    document.getElementById("leader").innerText = item.leader;
+    document.getElementById("adjoint").innerText = item.adjoint;
+    document.getElementById("imgLeader").src = item.imgLeader;
+    document.getElementById("imgAdjoint").src = item.imgAdjoint;
+    document.getElementById("description").innerText = item.description;
+
+    document.getElementById("categorie").innerText =
+        id.includes("ufi")
+            ? "Unité de Famille d’Impact"
+            : "Groupe d’Impact";
+
+    // animations
+    setTimeout(() => {
+        document.getElementById("titleBox").style.opacity = 1;
+        document.getElementById("titleBox").style.transform = "translateY(0)";
+    }, 100);
+
+    document.querySelectorAll(".fade-in").forEach((el, i) => {
+        setTimeout(() => el.classList.add("show"), 200 + i * 150);
+    });
+
+} else {
+    document.querySelector(".container").innerHTML =
+        "<h2 style='text-align:center'>Élément introuvable</h2>";
+}
+
+</script>
+
+</body>
+</html>

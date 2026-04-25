@@ -165,16 +165,36 @@ h4
 /* ============================= */
 
 .flexslider .slides li {
-    position: relative;
-    height: 100vh; /* plein écran */
-    overflow: hidden;
+    height: 80vh; /* moins agressif que 100vh */
 }
 
 .flexslider .slides li img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    object-position: center; /* 👈 centre l’image */
+}
+
+/* RESPONSIVE SLIDER MOBILE */
+.flexslider .slides img {
+    width: 150%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Ajuster la hauteur sur mobile */
+@media (max-width: 768px) {
+    .flexslider,
+    .flexslider .slides li {
+        height: 250px;
+    }
+
+    .flexslider .slides img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top; /* 👈 important */
+    }
 }
 
 
@@ -194,6 +214,14 @@ h4
         }
 }
 /* end navigation */
+
+#contact {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+#contact .container {
+    padding-top: 40px;
+}
 
 /* start home */        
 #home h1

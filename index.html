@@ -36,7 +36,7 @@
 					<li><a href="#accueil" class="smoothScroll">Accueil</a></li>
 					<li><a href="#programmes" class="smoothScroll">Programmes</a></li>
                     <li><a href="#groupes_et_UFIS" class="smoothScroll">Groupes & UFIs</a></li>
-                    <li><a href="#departements" class="smoothScroll">Départements</a></li>
+                    <!-- <li><a href="#departements" class="smoothScroll">Départements</a></li> -->
 					<li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
                     <li><a href="#apropos" class="smoothScroll">A Propos</a></li>
 					<li><a href="#contact" class="smoothScroll">Contact</a></li>
@@ -232,7 +232,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 wow bounceIn">
-					<h2>groupes et ufi</h2>
+					<h2>Groupes | Départements | Ufi</h2>
 					<hr>
 					<h4>Les groupes et les ufi sont des systèmes d'intégration et de gestion des membres de l'église. Ils se comportent comme des familles dans l'église. Tous sont dirigé par des leaders et un adjoint.</h4>
 				</div>
@@ -241,15 +241,16 @@
 			<div class="iso-section wow fadeIn" data-wow-delay="0.6s">
 
 				<!-- FILTRES -->
-				<ul class="filter-wrapper clearfix">
+				<ul class="filter-wrapper clearfix" id="filter-gufis">
 					<li><a href="#" data-filter="*" class="selected opc-main-bg">Tout</a></li>
-					<li><a href="#" class="opc-main-bg" data-filter=".groupes">Groupes</a></li>
+					<li><a href="#" class="opc-main-bg" data-filter=".groupes">Groupes d'Impacts</a></li>
 					<li><a href="#" class="opc-main-bg" data-filter=".ufi">UFIs</a></li>
+					<li><a href="#" class="opc-main-bg" data-filter=".services">Services</a></li>
 				</ul>
 
 				<!-- CONTENU -->
 				<div class="iso-box-section">
-					<div class="iso-box-wrapper col4-iso-box">
+					<div class="iso-box-wrapper col4-iso-box" id="grid-gufis">
 
 						<!-- GROUPE -->
 						<div class="iso-box groupes col-md-4 col-sm-6">
@@ -286,7 +287,7 @@
 						<div class="iso-box ufi col-md-4 col-sm-6">
 							<a href="details.html?id=ufi_flamme_de_feu">
 								<div class="apropos-wrapper">
-									<img src="images/team-img-2.png" class="img-responsive">
+									<img src="images/UFI.jpg" class="img-responsive">
 									<h3>UFI</h3>
 									<h5>Flamme de feu</h5>
 								</div>
@@ -323,6 +324,87 @@
 							</a>
 						</div>
 
+						<!-- SERVICES -->
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_groupe_musical">
+								<div class="apropos-wrapper">
+									<img src="images/Groupe musical.jpg" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Groupe musical</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_securite">
+								<div class="apropos-wrapper">
+									<img src="images/securité.jpg" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Sécurité</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_diena">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Diena</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_mass_média">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Mass Média</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_finance">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Finance</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_directeur_des_cultes">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Directeur des cultes</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_accueil">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Accueil</h5>
+								</div>
+							</a>
+						</div>
+
+						<div class="iso-box services col-md-4 col-sm-6">
+							<a href="details.html?id=services_art_et_culture">
+								<div class="apropos-wrapper">
+									<img src="images/team-img-2.png" class="img-responsive">
+									<h3>Services</h3>
+									<h5>Art et Culture</h5>
+								</div>
+							</a>
+						</div>
+
 					</div>
 				</div>
 
@@ -332,7 +414,7 @@
 	<!-- end groupes_et_UFIS -->
 
     <!-- start departements -->
-	<section id="departements">
+	<!--<section id="departements">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 wow bounceIn">
@@ -386,7 +468,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- end departements -->
     
 	<!-- start portfolio -->
@@ -401,7 +483,7 @@
 					</div>
 					<div class="iso-section wow fadeIn" data-wow-delay="0.6s">
 
-						<ul class="filter-wrapper clearfix">
+						<ul class="filter-wrapper clearfix" id="filter-portfolio">
 							<li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
 							<li><a href="#" class="opc-main-bg" data-filter=".graphic">Graphic</a></li>
 							<li><a href="#" class="opc-main-bg" data-filter=".photoshop">Photoshop</a></li>
@@ -409,84 +491,86 @@
 						</ul>
 
 						<div class="iso-box-section">
-							<div class="iso-box-wrapper col4-iso-box">
+							<!-- 🔥 IMPORTANT : ID CORRIGÉ ICI -->
+							<div class="iso-box-wrapper col4-iso-box" id="grid-portfolio">
 
 								<div class="iso-box graphic photoshop wallpaper col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/3.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>	
-											</div>											
-										</div>
+												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+											</div>
+										</div> 										
+										</div>-->	
 									</div>
 								</div>
 								<div class="iso-box graphic wallpaper col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/4.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
 												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<div class="iso-box wallpaper col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/5.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
 												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<div class="iso-box graphic col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/6.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
 												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<div class="iso-box wallpaper col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/7.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
 												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<div class="iso-box graphic photoshop col-md-4 col-sm-6 col-xs-12">
 									<div class="portfolio-thumb">
 										<img src="images/AID2.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
+										<!--<div class="portfolio-overlay">
 											<div class="portfolio-description">
 												<a href="#" class="fa fa-search"></a>
 												<a href="#" class="fa fa-link"></a>
 												<h4>Project title</h4>
 												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
@@ -502,55 +586,31 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 wow bounceIn">
-					<h2>A Propos</h2>
+					<h2>A propos</h2>
 					<hr>
-					<h4>some things a propos our past...</h4>
+					<h4>Découvrez notre vision, notre mission et notre engagement</h4>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-sm-6 wow fadeInLeft templatemo-apropos-left" data-wow-delay="0.3s">
-					<h3 class="apropos-title">Studio History</h3>
-					<p>Phasellus tempus malesuada congue. Sed id est tincidunt, iaculis nulla vel, sodales metus. Morbi interdum accumsan augue, in accumsan neque lacinia sed. Fusce cursus eu ligula ut gravida. Ut tristique hendrerit bibendum. Suspendisse euismod sit amet quam et luctus.</p>
-                    <p>Nulla viverra diam sed justo vehicula, non venenatis massa gravida. Nunc efficitur et quam non tempor. Nullam nec nisl eget est ultrices elementum nec vel nisl. Cras vestibulum nisl vel justo tempor, ut lacinia est accumsan.</p>
+    
+				<!-- TEXTE -->
+				<div class="col-md-6 col-sm-6 wow fadeInLeft" data-wow-delay="0.3s">
+					<h3 class="apropos-title">Notre vision</h3>
+					<p>
+						L’Ambassade Impact Divin (AID) est une église engagée dans la transformation des vies par la puissance de la Parole de Dieu...
+					</p>
 				</div>
-				<div class="col-md-6 col-sm-6 wow fadeInRight" data-wow-delay="0.3s">
-					<span class="text-uppercase">BOOTSTRAP 100%</span>
-					<div class="progress">
-						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-					</div>
-					<span class="text-uppercase">HTML5 &AMP; CSS3 90%</span>
-					<div class="progress">
-						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-					</div>
-					<span class="text-uppercase">Wordpress 65%</span>
-					<div class="progress">
-						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div>
-					</div>
+
+				<!-- PHOTO PASTEUR -->
+				<div class="col-md-6 col-sm-6 wow fadeInRight text-center" data-wow-delay="0.3s">
+					<img src="images/Pasteur1.jpg" class="img-responsive" style="border-radius: 10px; max-width: 350px; margin:auto;">
+					
+					<h3 style="margin-top:15px;">Pasteur  KELATE HYPOTE</h3>
+					<h5>Fondateur de l’Ambassade Impact Divin</h5>
 				</div>
+
 			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-					<div class="apropos-wrapper">
-						<img src="images/team-img-1.png" class="img-responsive" alt="apropos img">
-						<h3>Cindy Davis</h3>
-						<h5>Founder &amp; Director</h5>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-					<div class="apropos-wrapper">
-						<img src="images/team-img-2.png" class="img-responsive" alt="apropos img">
-						<h3>Jenny Meno</h3>
-						<h5>Creative Manager</h5>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-					<div class="apropos-wrapper">
-						<img src="images/team-img-3.png" class="img-responsive" alt="apropos img">
-						<h3>Catherine Barkley</h3>
-						<h5>Co-Founder &amp; Designer</h5>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</section>
 	<!-- end aPropos -->
@@ -564,18 +624,18 @@
 						<hr>
 						<h4>Talk to us for more assistance...</h4>
 					</div>					
-					<form action="#" method="post" role="form">
+					<form action="send_mail.php" method="post">
 						<div class="col-md-4 col-sm-4 wow fadeIn" data-wow-delay="0.3s">
-							<input type="text" placeholder="Name" class="form-control">
+							<input type="text" name="name" placeholder="Name" class="form-control">
 						</div>
 						<div class="col-md-4 col-sm-4 wow fadeIn" data-wow-delay="0.3s">
-							<input type="email" placeholder="Email" class="form-control">
+							<input type="email" name="email" placeholder="Email" class="form-control">
 						</div>
 						<div class="col-md-4 col-sm-4 wow fadeIn" data-wow-delay="0.3s">
-							<input type="text" placeholder="Subject" class="form-control">
+							<input type="text" name="subject" placeholder="Subject" class="form-control">
 						</div>
 						<div class="col-md-12 col-sm-12 wow fadeIn" data-wow-delay="0.9s">
-							<textarea class="form-control" rows="5" placeholder="Message"></textarea>
+							<textarea name="message" class="form-control" rows="5" placeholder="Message"></textarea>
 						</div>
 						<div class="col-md-offset-3 col-sm-offset-3 col-sm-6 col-md-6 wow fadeIn" data-wow-delay="0.3s">
 							<input type="submit" value="Send Message" class="form-control">

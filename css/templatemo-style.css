@@ -351,6 +351,11 @@ h4
     border-radius: 8px;
 }
 
+section {
+    padding-top: 125px;
+    margin-top: -125px;
+}
+
 /* TITRES */
 .apropos-wrapper h3 {
     font-size: 16px;

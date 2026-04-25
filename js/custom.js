@@ -1,91 +1,120 @@
-
-// preloader
-$(window).load(function(){
-    $('.preloader').fadeOut(1000); // set duration in brackets    
+// PRELOADER
+$(window).on('load', function () {
+    $('.preloader').fadeOut(1000);
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-	/* Hide mobile menu after clicking on a link
-    -----------------------------------------------*/
-    $('.navbar-collapse a').click(function(){
+    /* -----------------------------------------------
+    NAVBAR MOBILE CLOSE
+    ----------------------------------------------- */
+    $('.navbar-collapse a').click(function () {
         $(".navbar-collapse").collapse('hide');
     });
 
-    // jQuery to collapse the navbar on scroll //
-	$(window).scroll(function() {
-	    if ($(".navbar").offset().top > 50) {
-	        $(".navbar-fixed-top").addClass("top-nav-collapse");
-	    } else {
-	        $(".navbar-fixed-top").removeClass("top-nav-collapse");
-	    }
-	});
-	
-	/* FlexSlider
-	-----------------------------*/ 
-  	$('.flexslider').flexslider({
-      animation: "fade",
-      directionNav: false,
-  	});
+    /* -----------------------------------------------
+    NAVBAR SCROLL EFFECT
+    ----------------------------------------------- */
+    $(window).scroll(function () {
+        if ($(".navbar").offset().top > 50) {
+            $(".navbar-fixed-top").addClass("top-nav-collapse");
+        } else {
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        }
+    });
 
-  	/* isotope
-  	------------------------------*/
-  	if ( $('.iso-box-wrapper').length > 0 ) { 
+    /* -----------------------------------------------
+    FLEXSLIDER
+    ----------------------------------------------- */
+    $('.flexslider').flexslider({
+        animation: "fade",
+        directionNav: false
+    });
 
-	    var $container 	= $('.iso-box-wrapper'), 
-	    	$imgs 		= $('.iso-box img');
+    /* =================================================
+       ISOTOPE 1 : GROUPES & UFIS
+    ================================================= */
+    var $gufis = $('#grid-gufis');
 
-	    $container.imagesLoaded(function () {
+    if ($gufis.length > 0) {
 
-	    	$container.isotope({
-				layoutMode: 'fitRows',
-				itemSelector: '.iso-box'
-	    	});
+        $gufis.imagesLoaded(function () {
 
-	    	$imgs.load(function(){
-	    		$container.isotope('reLayout');
-	    	})
+            $gufis.isotope({
+                layoutMode: 'fitRows',
+                itemSelector: '.iso-box'
+            });
 
-	    });
+        });
 
-	    //filter items on button click
-	    $('.filter-wrapper li a').click(function(){
+        $('#filter-gufis a').on('click', function (e) {
+            e.preventDefault();
 
-	        var $this = $(this), filterValue = $this.attr('data-filter');
+            var filterValue = $(this).attr('data-filter');
 
-			$container.isotope({ 
-				filter: filterValue,
-				animationOptions: { 
-				    duration: 750, 
-				    easing: 'linear', 
-				    queue: false, 
-				}              	 
-			});	            
+            $gufis.isotope({
+                filter: filterValue,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
 
-			// don't proceed if already selected 
-			if ( $this.hasClass('selected') ) { 
-				return false; 
-			}
+            $('#filter-gufis a').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    }
 
-			var filter_wrapper = $this.closest('.filter-wrapper');
-			filter_wrapper.find('.selected').removeClass('selected');
-			$this.addClass('selected');
+    /* =================================================
+		ISOTOPE 2 : PORTFOLIO (CORRIGÉ)
+		================================================= */
+		var $portfolio = $('#grid-portfolio');
 
-	      return false;
-	    }); 
+		if ($portfolio.length > 0) {
 
-		
-	}
+			$portfolio.imagesLoaded(function () {
 
-		$(window).on('load', function() {
-			$('.iso-box-wrapper').isotope({
-				itemSelector: '.iso-box',
-				layoutMode: 'fitRows'
+				$portfolio.isotope({
+					layoutMode: 'fitRows',
+					itemSelector: '.iso-box'
+				});
+
 			});
-		});
-	
 
-	/* wow
-	-------------------------------*/
-	new WOW().init();
+			$('#filter-portfolio a').on('click', function (e) {
+				e.preventDefault(); // 🔥 empêche le scroll vers le haut
+
+				var filterValue = $(this).attr('data-filter');
+
+				$portfolio.isotope({
+					filter: filterValue,
+					animationOptions: {
+						duration: 750,
+						easing: 'linear',
+						queue: false
+					}
+				});
+
+				$('#filter-portfolio a').removeClass('selected');
+				$(this).addClass('selected');
+			});
+		}
+
+		$('.smoothScroll').click(function(e) {
+			e.preventDefault();
+
+			var target = $(this.hash);
+			var offset = 80; // hauteur navbar
+
+			$('html, body').animate({
+				scrollTop: target.offset().top - offset
+			}, 800);
+		});
+
+    /* -----------------------------------------------
+    WOW ANIMATION
+    ----------------------------------------------- */
+    new WOW().init();
+
 });

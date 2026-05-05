@@ -8,14 +8,14 @@ $(document).ready(function () {
     /* -----------------------------------------------
     NAVBAR MOBILE CLOSE
     ----------------------------------------------- */
-    $('.navbar-collapse a').click(function () {
+    $('.navbar-collapse a').on('click', function () {
         $(".navbar-collapse").collapse('hide');
     });
 
     /* -----------------------------------------------
     NAVBAR SCROLL EFFECT
     ----------------------------------------------- */
-    $(window).scroll(function () {
+    $(window).on('scroll', function () {
         if ($(".navbar").offset().top > 50) {
             $(".navbar-fixed-top").addClass("top-nav-collapse");
         } else {
@@ -32,85 +32,66 @@ $(document).ready(function () {
     });
 
     /* =================================================
-       ISOTOPE 1 : GROUPES & UFIS
+       FONCTION GÉNÉRIQUE ISOTOPE (🔥 AMÉLIORATION MAJEURE)
     ================================================= */
-    var $gufis = $('#grid-gufis');
+    function initIsotope(grid, filter) {
+        var $grid = $(grid);
 
-    if ($gufis.length > 0) {
+        if (!$grid.length) return;
 
-        $gufis.imagesLoaded(function () {
-
-            $gufis.isotope({
-                layoutMode: 'fitRows',
-                itemSelector: '.iso-box'
+        $grid.imagesLoaded(function () {
+            $grid.isotope({
+                itemSelector: '.iso-box',
+                layoutMode: 'fitRows'
             });
-
         });
 
-        $('#filter-gufis a').on('click', function (e) {
+        $(filter + ' a').on('click', function (e) {
             e.preventDefault();
 
-            var filterValue = $(this).attr('data-filter');
+            var value = $(this).attr('data-filter');
 
-            $gufis.isotope({
-                filter: filterValue,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                }
-            });
+            $grid.isotope({ filter: value });
 
-            $('#filter-gufis a').removeClass('selected');
+            $(filter + ' a').removeClass('selected');
             $(this).addClass('selected');
         });
     }
 
+    $(function () {
+        initIsotope('#grid-activites', '#filter-activites');
+        initIsotope('#grid-portfolio', '#filter-portfolio');
+        initIsotope('#grid-gufis', '#filter-gufis');
+    });
+
+	$(document).ready(function () {
+		initIsotope('#grid-activites', '#filter-activites');
+		initIsotope('#grid-portfolio', '#filter-portfolio');
+		initIsotope('#grid-gufis', '#filter-gufis');
+	});
+
     /* =================================================
-		ISOTOPE 2 : PORTFOLIO (CORRIGÉ)
-		================================================= */
-		var $portfolio = $('#grid-portfolio');
+       INITIALISATION DES 3 BLOCS
+    ================================================= */
+    initIsotope('#grid-gufis', '#filter-gufis');
+    initIsotope('#grid-activites', '#filter-activites');
+    initIsotope('#grid-portfolio', '#filter-portfolio');
 
-		if ($portfolio.length > 0) {
 
-			$portfolio.imagesLoaded(function () {
+    /* -----------------------------------------------
+    SMOOTH SCROLL
+    ----------------------------------------------- */
+    $('.smoothScroll').on('click', function (e) {
+        e.preventDefault();
 
-				$portfolio.isotope({
-					layoutMode: 'fitRows',
-					itemSelector: '.iso-box'
-				});
+        var target = $(this.hash);
 
-			});
-
-			$('#filter-portfolio a').on('click', function (e) {
-				e.preventDefault(); // 🔥 empêche le scroll vers le haut
-
-				var filterValue = $(this).attr('data-filter');
-
-				$portfolio.isotope({
-					filter: filterValue,
-					animationOptions: {
-						duration: 750,
-						easing: 'linear',
-						queue: false
-					}
-				});
-
-				$('#filter-portfolio a').removeClass('selected');
-				$(this).addClass('selected');
-			});
-		}
-
-		$('.smoothScroll').click(function(e) {
-			e.preventDefault();
-
-			var target = $(this.hash);
-			var offset = 80; // hauteur navbar
-
-			$('html, body').animate({
-				scrollTop: target.offset().top - offset
-			}, 800);
-		});
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top - 80
+            }, 800);
+        }
+    });
 
     /* -----------------------------------------------
     WOW ANIMATION

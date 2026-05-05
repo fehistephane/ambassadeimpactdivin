@@ -354,8 +354,121 @@ h4
 }
 
 /* FIX GRID MOBILE */
+/* Fix isotope spacing */
 .iso-box {
     margin-bottom: 30px;
+}
+
+/* Uniformiser les images */
+.iso-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.activity-card{
+	background:#fff;
+	border-radius:10px;
+	overflow:hidden;
+	box-shadow:0 5px 20px rgba(0,0,0,0.1);
+	margin-bottom:30px;
+	transition:0.3s;
+}
+
+.activity-card:hover{
+	transform:translateY(-5px);
+}
+
+.activity-img{
+	position:relative;
+}
+
+.activity-img img{
+	width:100%;
+	height:250px;
+	object-fit:cover;
+}
+
+.activity-img .overlay{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.5);
+	opacity:0;
+	transition:0.3s;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.activity-card:hover .overlay{
+	opacity:1;
+}
+
+.btn-view{
+	background:#ff6a00;
+	color:#fff;
+	padding:10px 15px;
+	border-radius:5px;
+	text-decoration:none;
+}
+
+.activity-content{
+	padding:15px;
+}
+
+.activity-info{
+	margin-top:10px;
+	font-size:13px;
+	color:#777;
+	display:flex;
+	justify-content:space-between;
+}
+
+#activites {
+	padding: 100px 0;
+	background: #f9f9f9;
+}
+
+/* CARTE PRO */
+.activity-card {
+	background: #fff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+	transition: 0.3s;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.activity-card img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.activity-card:hover {
+	transform: translateY(-5px);
+}
+
+.btn-view {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 8px 15px;
+	background: #55acee;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+    .iso-box img {
+        height: 200px;
+    }
 }
 
 /* Empêche chevauchement */
@@ -368,8 +481,10 @@ h4
 .apropos-wrapper {
     background: #fff;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 20px;
     height: 100%;
+    margin-top: 10px;
+    width: 100%;
 }
 
 /* Images bien contenues */

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Détails Activité - AID</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<style>
+
+/* ===== GLOBAL ===== */
+body{
+    background:#f2f4f8;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== HEADER ===== */
+.header{
+    background:#fff;
+    padding:15px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-weight:bold;
+    color:#55acee;
+    font-size:18px;
+}
+
+.back-btn{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+/* ===== CONTAINER ===== */
+.container-main{
+    padding:40px 15px;
+}
+
+/* ===== CARD ===== */
+.card-detail{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== BADGES ===== */
+.badge-info{
+    display:inline-block;
+    padding:6px 12px;
+    background:#55acee;
+    color:#fff;
+    border-radius:20px;
+    margin-right:5px;
+    margin-top:10px;
+}
+
+/* ===== GALLERY ===== */
+.gallery .img-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.gallery img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* 🔥 ZOOM AU SURVOL 
+.gallery .img-box:hover img{
+    transform: scale(1.2);
+    cursor: zoom-in;
+}*/
+
+/* ===== VIDEO ===== */
+.video-box{
+    margin-top:20px;
+    max-width: 100%;
+}
+
+.video-box video{
+    width:100%;
+    max-height: 420px;   /* 🔥 limite la taille */
+    object-fit: contain;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== TITRE ===== */
+h2{
+    color:#222;
+}
+
+/* ===== IMAGE BOX ===== */
+.img-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.img-box img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* ===== POPUP OVERLAY ===== */
+/* ===== POPUP OVERLAY ===== */
+.image-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    
+    max-width: 500px;   /* 🔥 taille max contrôlée */
+    width: 90%;
+    
+    z-index: 9999;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+/* IMAGE */
+.image-popup img{
+    width: 100%;
+    height: auto;
+    max-height: 70vh;   /* 🔥 évite que ça prenne tout l'écran */
+    object-fit: contain;
+
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* visible */
+.image-popup.show{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* fond sombre */
+.popup-overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+    opacity:0;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+.popup-overlay.show{
+    opacity:1;
+}
+
+.img-box{
+    position: relative;
+}
+
+.view-btn{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.view-btn:hover{
+    background: #000;
+}
+
+.image-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    max-width: 500px;
+    width: 90%;
+    
+    z-index: 9999;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.image-popup img{
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* CROIX */
+.close-popup{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #000;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* overlay */
+.popup-overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+    opacity:0;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+.popup-overlay.show{
+    opacity:1;
+}
+
+.image-popup.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+</style>
+</head>
+
+<div class="popup-overlay" id="overlay"></div>
+
+<div class="image-popup" id="popup">
+    <span class="close-popup" id="closePopup">×</span>
+    <img id="popupImg">
+</div>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">⛪ Ambassade Impact Divin</div>
+    <a href="javascript:history.back()" class="back-btn">
+        ← Retour
+    </a>
+</div>
+
+<!-- CONTENU -->
+<div class="container container-main">
+
+    <div class="card-detail">
+
+        <h2 id="titre"></h2>
+        <p id="description"></p>
+
+        <div>
+            <span class="badge-info" id="lieu"></span>
+            <span class="badge-info" id="heure"></span>
+            <span class="badge-info" id="date"></span>
+        </div>
+
+        <hr>
+
+        <h3>📸 Galerie</h3>
+        <div class="row gallery" id="images"></div>
+
+        <hr>
+
+        <h3>🎥 Vidéo de l’activité</h3>
+
+        <div class="video-box" id="videoBox">
+            <video id="videoPlayer" controls>
+                <source id="videoSource" src="" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/activites-data.js"></script>
+
+<script>
+
+function getParam(name){
+    return new URLSearchParams(window.location.search).get(name);
+}
+
+const id = getParam("id");
+const data = ACTIVITES[id];
+
+if(data){
+
+    document.getElementById("titre").innerText = data.titre;
+    document.getElementById("description").innerText = data.description;
+    document.getElementById("lieu").innerText = "📍 " + data.lieu;
+    document.getElementById("heure").innerText = "🕒 " + data.heure;
+    document.getElementById("date").innerText = "📅 " + data.date;
+
+    // ===== IMAGES =====
+    let imgHtml = "";
+    data.images.forEach(img=>{
+        imgHtml += `
+        <div class="col-md-4 col-sm-6">
+            <div class="img-box">
+                <img src="${img}" class="gallery-img">
+                <button class="view-btn">Voir</button>
+            </div>
+        </div>`;
+    });
+    document.getElementById("images").innerHTML = imgHtml;
+
+    // ===== VIDEO LOCAL =====
+    if(data.videos && data.videos.length > 0){
+
+        document.getElementById("videoSource").src = data.videos[0];
+        document.getElementById("videoPlayer").load();
+
+    }else{
+
+        document.getElementById("videoBox").innerHTML =
+        "<p style='text-align:center;color:#777'>Aucune vidéo disponible</p>";
+
+    }
+
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popupImg");
+    const overlay = document.getElementById("overlay");
+    const closePopup = document.getElementById("closePopup");
+
+    // OUVRIR popup au clic sur bouton
+    document.addEventListener("click", function(e){
+        if(e.target.classList.contains("view-btn")){
+            const img = e.target.parentElement.querySelector("img");
+            popupImg.src = img.src;
+            popup.classList.add("show");
+            overlay.classList.add("show");
+        }
+    });
+
+    // FERMER popup
+    function close(){
+        popup.classList.remove("show");
+        overlay.classList.remove("show");
+    }
+
+closePopup.addEventListener("click", close);
+overlay.addEventListener("click", close);
+
+    document.addEventListener("mouseout", function(e){
+        if(e.target.classList.contains("gallery-img")){
+            popup.classList.remove("show");
+            overlay.classList.remove("show");
+        }
+    });
+
+}else{
+    document.body.innerHTML =
+    "<h2 style='text-align:center;padding:100px'>Activité introuvable</h2>";
+}
+
+</script>
+
+</body>
+</html>
